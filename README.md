@@ -38,7 +38,7 @@ COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 ```
 
-After building the image, we get an image of 422MB:
+After building the image, we get an image size of 422MB:
 
 ```bash
 $ docker images original
@@ -88,7 +88,7 @@ WORKDIR "${WHEEL_DIST}"
 RUN pip3 --no-cache-dir install *.whl
 ```
 
-The size of the image has gone done significantly:
+The size of the image has gone down significantly:
 
 ```bash
 $ docker images multi-stage
