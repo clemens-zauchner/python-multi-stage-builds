@@ -1,14 +1,14 @@
 # Using docker multi stage builds to reduce image size
 
 When writing container images, it is always preferable to have smaller images and to only include 
-what is really needed. This two main advantages: 
+what is really needed. This has two main advantages: 
 
 1. images take up less storage space 
 2. security vulnerabilities of software that is not installed cannot be exploited
 
 ## Example dockerfile 
 
-Let's take a very simple image that starts of with an official python-docker image, using a slim version
+Let's take a very simple image that starts off with an official python-docker image, using a slim version
 of the current stable debian release, bullseye. We are going to use python 3.8, but this is not important. 
 The image is pulled from [docker hub](https://hub.docker.com/_/python).
 
@@ -96,7 +96,7 @@ REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
 multi-stage   latest    b90d97997b3b   44 seconds ago   128MB
 ```
 
-The difference is more stark when considering the size of the base image:
+The difference is starker when considering the size of the base image:
 
 ```bash
 docker images python:3.8-slim-bullseye
@@ -106,7 +106,9 @@ python       3.8-slim-bullseye   caf584a25606   5 days ago   122MB
 
 ## Increasing security
 
-To illustrate this point we are going to use [trivy](https://github.com/aquasecurity/trivy) to scan our 
+Smaller images can contribute to more security.  
+
+To illustrate this point, we are going to use [trivy](https://github.com/aquasecurity/trivy) to scan our 
 images for known security vulnerabilities.
 
 The base image has 85 vulnerabilities: 
